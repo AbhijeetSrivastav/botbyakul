@@ -2,15 +2,14 @@ import tweepy
 import time
 import os
 
-consumer_api_key = os.environ('consumer_api_key')
-consumer_api_secret = os.environ('consumer_api_secret')
-access_token = os.environ('access_token')
-access_token_secret = os.environ('access_token_secret')
+consumer_api_key = os.environ.get('consumer_api_key')
+consumer_api_secret = os.environ.get('consumer_api_secret')
+access_token = os.environ.get('access_token')
+access_token_secret = os.environ.get('access_token_secret')
 
 auth = tweepy.OAuthHandler(consumer_api_key, consumer_api_secret)
 auth.set_access_token(access_token, access_token_secret)
 
-print(consumer_api_secret[-1])
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
