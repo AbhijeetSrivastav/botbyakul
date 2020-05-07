@@ -10,6 +10,8 @@ access_token_secret = os.environ('access_token_secret')
 auth = tweepy.OAuthHandler(consumer_api_key, consumer_api_secret)
 auth.set_access_token(access_token, access_token_secret)
 
+print(consumer_api_secret[-1])
+
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 user = api.me()
